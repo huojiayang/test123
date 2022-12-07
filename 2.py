@@ -19,7 +19,7 @@ subprocess.call(cmd, shell=True)
 
 
 # cmd = "git remote add origin https://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@github.com/huojiayang/test123.git"
-subprocess.call(cmd, shell=True)
+# subprocess.call(cmd, shell=True)
 
 cmd = "git push -u origin master"
 subprocess.call(cmd, shell=True)
