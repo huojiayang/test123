@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+     <meta name="keywords" content="HTML5" />
+        <meta name="description" content="HTML5" />
+        <meta name="author" content="js" />
+        <meta name="copyright" content="js" />
+     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+ <script type="text/javascript">
+	$(function(){
+				//点击出现
+				$('.td2').click(function(){
+					$('.divtwo').slideDown();
+				});
+
+				//点击隐藏div1
+				$('.bth1').click(function(){
+					$('.divtwo').slideUp();
+				});
+			});
+	$(function(){
+            //点击出现
+            $('.pdfshow').click(function(){
+                $('.pdfiframe').slideDown();
+            });
+
+            //点击隐藏div1
+            $('.pdfclose').click(function(){
+                $('.pdfiframe').slideUp();
+            });
+
+        });
+
+    function showBigPic(pic){
+      //获取图片的宽和高
+      minw = pic.width;
+      minh = pic.height;
+      //获取屏幕的宽和高
+      winw = document.documentElement.clientWidth;
+      winh = document.documentElement.clientHeight;
+      //动态的创建一个背景
+      gdiv = document.createElement('div');
+      gdiv.id = 'gray';
+      gdiv.style.height = winh*15+'px';
+      gdiv.style.width = winw*15+'px';
+      document.body.appendChild(gdiv);
+
+      //创建动态的图片对象，将该对象的src赋值为原图的src
+      oimg = document.createElement('img');
+      oimg.src = pic.src;
+      oimg.width=minw*5;
+      oimg.height=minh*5;
+      oimg.style.position = 'fixed';
+      oimg.style.top = (winh-minh*3)/3+'px';
+      oimg.style.left= (winw-minw*3)/3+'px';
+      document.body.appendChild(oimg);
+
+      //删除动态的图片和对象
+      gdiv.onclick = function(){
+         document.body.removeChild(this);
+         document.body.removeChild(oimg);
+      }
+      oimg.onclick = function(){
+         document.body.removeChild(gdiv);
+         document.body.removeChild(oimg);
+      }
+  }
+  //设置图片的位置来适应窗口的大小
+  window.onresize=function(){
+      winh = document.documentElement.clientHeight;
+      winw = document.documentElement.clientWidth;
+      gdiv.style.width = winw + 'px';
+      gdiv.style.height = winh + 'px';
+       //更改图片的位置
+      oimg.style.top = (winh-minh*5)/5 + 'px';
+      oimg.style.left = (winw-minw*5)/5 + 'px';
+  }
+</script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+  #gray{
+        background : black;
+        opacity : 0.55;
+        filter : alpha(opacity=55);
+        position : absolute;
+        top : 0px;
+        left : 0px;
+    }
+  .divtwo {
+
+				width: 720px;
+				height: 480px;
+
+				top: 150px;
+				left: 25%;
+				background-color: #FFFFFF;
+				display: none;
+                position: fixed;
+			}
+    </style>
+    <div class="content-wrapper" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card gradient-forest">
+                        <div class="card gradient-forest"><h4 style="color: white">资料圈学习表</h4></div>
+                        <div class="card-body text-center p-5">
+                            <div class="table-responsive">
+                                <div id="default-datatable_wrapper"
+                                     class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-dark table-striped shadow-dark"
+                                                   role="grid" aria-describedby="default-datatable_info">
+                                                <thead>
+                                                <tr role="row">
+
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Position: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>OP站点</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>Onepage</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>Description</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>Maintainer</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>Update Date:</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>File</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 150px;font-size:17px"><p>vedio</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending"
+                                                    style="width: 150px;font-size:17px"><p>Status</p>
+                                                </th>
+                                                      <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 101px;font-size:17px"><p>User Operation</p>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <div class="pdfiframe" style=" background-color: blue;position: fixed; width: 200px;height:200px;display: none">
+            <iframe id="pdfdata" src="" width="1000px" height="800px" >
+            </iframe>
+            <div type="button" class="pdfclose" style=" cursor: pointer;"><a href="#">关闭</a></div>
+        </div>
+                                                    {% for book_obj in book_list %}
+                                                        <td>{{ book_obj.book_name }}</td>
+                                                        <!-- 使用弹框来显示图书的详情-->
+                                                        <td style="cursor: pointer; /* 鼠标移入按钮范围时出现手势 */">
+                                                                <img src="{% static book_obj.img_path%}"
+                                                                      width='150px' onclick='showBigPic(this)' smallimage></a>
+                                                        </td>
+                                                        <td>{{ book_obj.book_type }}</td>
+                                                        <td>{{ book_obj.author }}</td>
+                                                        <td>{{ book_obj.book_score }}</td>
+                                                        <td>
+                                                        <button class="pdfshow" onclick="PDFobj(this)" name="{% static book_obj.file_path %}">{{ book_obj.file_name }}</button>
+                                                        </td>
+
+                                                        
+                                                        <td style="width: 150px; cursor: pointer; /* 鼠标移入按钮范围时出现手势 */;"class="td2">
+                                                                
+                                                            <div style="width:150px;overflow: hidden;text-overflow: ellipsis;"class="td2"  >
+                                                                <img class="td2" style="width: 130px;"  onclick="Video(this)" name="{% static book_obj.video_path %}" src="{% static book_obj.img_path %}">
+                                                            </div>
+                                                        </td>
+                                                        
+                                                        <td>分数：{{ book_obj.achievement}} {{book_obj.status }}</td>
+                                                        
+                                                    <td>
+                                                            <a href="/librarian/update_book/?id={{ book_obj.id }}">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-info btn-round waves-effect waves-light m-1">
+                                                                    修改
+                                                                </button>
+                                                            </a>
+                                                            <a href="/librarian/delete_book/?id={{ book_obj.id }}">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-danger btn-round waves-effect waves-light m-1"
+                                                                        data-toggle="modal"
+                                                                        data-target="#modal-animation-11">删除
+                                                                </button>
+                                                            </a>
+                                                            <a href="/librarian/test_data/?id={{ book_obj.id }}">
+                                                                    <button type="button"
+                                                                            class="btn btn-outline-success btn-round waves-effect waves-light m-1">
+                                                                        本节测试
+                                                                    </button>
+                                                                </a>
+                                                            <a href="/librarian/rank/?book_id={{ book_obj.id }}">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-success btn-round waves-effect waves-light m-1">
+                                                                    排名
+                                                                </button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                    
+                                                {% endfor %}
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-7" style="margin: 1px 300px">
+                                        <div class="dataTables_paginate paging_simple_numbers"
+                                             id="default-datatable_paginate">
+
+                                            <ul class="pagination pagination-outline-dark">
+
+                                                {% if book_page_objs.has_previous %}
+                                                    <li class="paginate_button page-item previous "
+                                                        id="default-datatable_previous">
+                                                        <a href='{% url 'librarian:book_list' page=book_page_objs.previous_page_number %}'
+                                                           aria-controls="default-datatable"
+                                                           data-dt-idx="0" tabindex="0"
+                                                           class="page-link">上一页</a></li>
+
+                                                {% else %}
+                                                    <li class="paginate_button page-item previous disabled"
+                                                        id="default-datatable_previous">
+                                                        <a href="{% url "librarian:book_list" page=1 %}"
+                                                           aria-controls="default-datatable"
+                                                           data-dt-idx="0" tabindex="0"
+                                                           class="page-link">上一页</a>
+                                                    </li>
+                                                {% endif %}
+                                                {% for foo in page_range %}
+                                                    {% if foo == current_page_num %}
+                                                                                                <!-- 如果是当前页就高亮显示 -->
+                                                        <li class="paginate_button page-item active"><a
+                                                                href="{% url "librarian:book_list" page=current_page_num %}"
+                                                                aria-controls="default-datatable"
+                                                                data-dt-idx="1"
+                                                                tabindex="0"
+                                                                class="page-link">{{ current_page_num }}</a>
+                                                        </li>
+                                                    {% else %}
+                                                        <li class="paginate_button page-item"><a
+                                                                href="{% url "librarian:book_list" page=foo %}"
+                                                                aria-controls="default-datatable"
+                                                                data-dt-idx="1"
+                                                                tabindex="0"
+                                                                class="page-link">{{ foo }}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if book_page_objs.has_next %}
+                                                    <li class="paginate_button page-item next"
+                                                        id="default-datatable_next">
+                                                        <a href="{% url "librarian:book_list" page=book_page_objs.next_page_number %}"
+
+                                                           aria-controls="default-datatable"
+                                                           data-dt-idx="7" tabindex="0"
+                                                           class="page-link">下一页</a></li>
+                                                {% else %}
+                                                    <li class="paginate_button page-item next disabled"
+                                                        id="default-datatable_next"><a href="#"
+                                                                                       aria-controls="default-datatable"
+                                                                                       data-dt-idx="7" tabindex="0"
+                                                                                       class="page-link">下一页</a></li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>End Row
+    <div class="divtwo">
+			<video id="media" src="" width="720" height="480" controls autoplay>浏览器不支持video标签</video>
+			<input type="button" class="bth1 " value="关闭窗口" style="
+                float: right;
+                width: 200px; /* 宽度 */
+                height: 40px; /* 高度 */
+                border-width: 0px; /* 边框宽度 */
+                border-radius: 3px; /* 边框半径 */
+                background: #0f1010; /* 背景颜色 */
+                cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+                outline: none; /* 不显示轮廓线 */
+                font-family: Microsoft YaHei; /* 设置字体 */
+                color: white; /* 字体颜色 */
+                font-size: 17px; /* 字体大小 */
+            "/>
+		</div>
+
+    </div>
+
+
+    <script>
+    function PDFobj(data) {
+        console.log(555555)
+        console.log(data.name)
+        console.log(6666666)
+        $(".pdfiframe").attr('style', 'z-index:999;position: fixed; width:1000px;height:00px;top:10px;');
+        $("#pdfdata").attr('src', data.name);
+     }
+</script>
+
+    <script>
+         function Video(data) {
+            console.log(111111111111111)
+            console.log(data.name)
+            console.log(22222222)
+                $("#media").attr('src', data.name);
+         }
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card gradient-forest">
+                            <div class="card gradient-forest"><h4 style="color:red">图书查询结果</h4></div>
+                            <div class="card-body text-center p-5">
+                                <div class="table-responsive">
+                                    <div id="default-datatable_wrapper"
+                                         class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table table-dark table-striped shadow-dark"
+                                                       role="grid" aria-describedby="default-datatable_info">
+                                                    <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                            aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending"
+                                                            style="width: 50px;
+                                                    font-size:17px">
+                                                            <p>图书编号</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Position: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书名称</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书图片</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书类型</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>作者</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书价格</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书评分</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 101px;font-size:17px"><p>图书简介</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书销量</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书评论量</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>图书库存</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>出版社</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>状态</p>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for book_obj in book_list %}
+                                                        <P>{{ book_obj.book_num }}{{book_obj.achievement}}</P>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1"
+                                                                style="width: 50px">{{ book_obj.book_num }}</td>
+                                                            <td>{{ book_obj.book_name }}</td>
+                                                            <!-- 使用弹框来显示图书的详情-->
+                                                            <td>
+                                                                <a href="{% static book_obj.img_path %}"
+                                                                   data-fancybox="group2"
+                                                                   data-caption="{{ book_obj.book_name }}">
+                                                                    <img src="{% static book_obj.img_path%}"
+                                                                         alt="lightbox"
+                                                                         class="lightbox-thumb img-thumbnail">
+                                                                </a>
+
+
+                                                            </td>
+                                                            <td>{{ book_obj.book_type }}</td>
+                                                            <td>{{ book_obj.author }}</td>
+                                                            <td>{{ book_obj.book_price }}</td>
+                                                            <td>{{ book_obj.book_score }}</td>
+                                                            <td style="width: 100px">
+                                                                <div style="width:100px;overflow: hidden;text-overflow: ellipsis">{{ book_obj.book_description }}</div>
+                                                            </td>
+                                                            <td>{{ book_obj.book_sales }}</td>
+                                                            <td>{{ book_obj.comment_nums }}</td>
+                                                            <td>{{ book_obj.book_inventory }}</td>
+                                                            <td>{{ book_obj.publisher_name }}</td>
+                                                            <td>分数：{{ book_obj.achievement}} {{book_obj.status }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Row-->
+
+        </div>
+{% endblock %}
+

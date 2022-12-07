@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if status == True %}
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card gradient-forest">
+                            <div class="card gradient-forest"><h4 style="color:red">考试排名</h4></div>
+                            <div class="card-body text-center p-5">
+                                <div class="table-responsive">
+                                    <div id="default-datatable_wrapper"
+                                         class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p style="font-size:45px ;">您此次考了{{myself.achievement}}分 排名在第{{myself.index}}</p>
+                                                <table class="table table-dark table-striped shadow-dark"
+                                                       role="grid" aria-describedby="default-datatable_info">
+                                                    <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Position: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>课程</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>学生</p>
+                                                        </th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-datatable"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                            style="width: 100px;font-size:17px"><p>成绩</p>
+                                                        </th>
+                                                        
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for data in result %}
+                                                        <tr role="row" class="odd">
+                                                            <td>{{ data.book_name }}</td>
+                                                            <td>{{ data.username }}</td>
+                                                            <td>{{ data.achievement }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Row-->
+
+        </div>
+{% else %}
+<div id="wrapper">
+
+    <div class="container" style="margin: 20px 310px">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center error-pages">
+                    <h1 class="error-title text-white"> 404</h1>
+                    <h2 class="error-sub-title text-white">此课程暂未考试</h2>
+
+                    <p class="error-message text-white text-uppercase">{{ error_msg }}</p>
+
+                    <div class="mt-4">
+                        <a href="/librarian/index/" class="btn btn-info btn-round shadow-info m-1">返回主页</a>
+                        {#                          <a href="javascript:void();" class="btn btn-info btn-round m-1">Previous Page </a>#}
+                    </div>
+
+
+                    <hr class="w-50 border-light-2">
+                    <hr class="w-50 border-light-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!--wrapper-->
+{% endif %}
+{% endblock %}
+
