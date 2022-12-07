@@ -14,10 +14,8 @@ subprocess.call(cmd, shell=True)
 cmd = 'git commit -m "just test！！！"'
 subprocess.call(cmd, shell=True)
 
-cmd = 'git remote remove origin'
-subprocess.call(cmd, shell=True)
 
-cmd = "git remote add origin https://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@github.com/huojiayang/test123.git"
+cmd = "git remote add origin https://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@github.com/huojiayang/test123.git"
 subprocess.call(cmd, shell=True)
 
 cmd = "git push -u origin master"
