@@ -8,6 +8,9 @@ returned_value = subprocess.call(cmd, shell=True)
 cmd = 'git init'
 subprocess.call(cmd, shell=True)
 
+cmd = 'git config credential.helper store'
+subprocess.call(cmd, shell=True)
+
 cmd = "git add ."
 subprocess.call(cmd, shell=True)
 
