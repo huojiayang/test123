@@ -2,7 +2,7 @@ import subprocess
 from pexpect import popen_spawn
 import pexpect
 
-cmd = "cd /Users/zhongfener/Desktop/python/github"
+cmd = "cd /Users/zhongfener/Desktop/python/BookSystem"
 returned_value = subprocess.call(cmd, shell=True)
 
 cmd = 'git init'
