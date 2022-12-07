@@ -18,6 +18,7 @@ cmd = 'git commit -m "just test！！！"'
 subprocess.call(cmd, shell=True)
 
 
+print(22222)
 # cmd = "git remote add origin https://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@github.com/huojiayang/test123.git"
 # subprocess.call(cmd, shell=True)
 
